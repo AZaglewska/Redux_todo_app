@@ -1,4 +1,5 @@
 export const routes = {
-  todos: "/",
+  main: "/",
+  todos: "/todos",
   completedTodos: "/completedTodos",
 };
