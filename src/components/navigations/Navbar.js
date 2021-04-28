@@ -2,23 +2,26 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes";
+import { NavList, NavListElement, NavLink } from "./NavbarStyles.js";
 
 const Navbar = ({ todos, completedTodos }) => {
   return (
     <nav>
-      <ul>
-        <li>
-          <Link to={routes.main}>Add todo</Link>
-        </li>
-        <li>
-          <Link to={routes.todos}>Todos in progress ({todos.length})</Link>
-        </li>
-        <li>
-          <Link to={routes.completedTodos}>
+      <NavList>
+        <NavListElement>
+          <NavLink to={routes.main}>Add todo</NavLink>
+        </NavListElement>
+        <NavListElement>
+          <NavLink to={routes.todos}>
+            Todos in progress ({todos.length})
+          </NavLink>
+        </NavListElement>
+        <NavListElement>
+          <NavLink to={routes.completedTodos}>
             Completed todos ({completedTodos.length})
-          </Link>
-        </li>
-      </ul>
+          </NavLink>
+        </NavListElement>
+      </NavList>
     </nav>
   );
 };
