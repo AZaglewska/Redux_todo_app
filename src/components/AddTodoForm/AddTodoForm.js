@@ -1,5 +1,13 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
+import {
+  StyledTodoFormWrapper,
+  StyledTodoForm,
+  StyledElementsWrapper,
+  StyledTodoInput,
+  StyledTodoTextarea,
+  StyledElements,
+} from "./AddTodoFormStyles";
 
 const AddTodoForm = () => {
   const handleAddTodoForm = (e) => {
@@ -22,22 +30,34 @@ const AddTodoForm = () => {
   };
 
   return (
-    <form onSubmit={handleAddTodoForm}>
-      <input type="text" placeholder="todo title..." name="title" required />
-      <textarea
-        name="content"
-        placeholder="todo content..."
-        cols="30"
-        rows="10"
-      />
-      <label htmlFor="priority">Choose todo priority: </label>
-      <select name="priority" id="priority">
-        <option value="low">low</option>
-        <option value="medium">medium</option>
-        <option value="high">high</option>
-      </select>
-      <button type="submit">add todo</button>
-    </form>
+    <StyledTodoFormWrapper>
+      <StyledTodoForm onSubmit={handleAddTodoForm}>
+        <StyledElementsWrapper>
+          <StyledTodoInput
+            type="text"
+            placeholder="Todo title..."
+            name="title"
+            required
+          />
+          <StyledTodoTextarea
+            name="content"
+            placeholder="Todo content..."
+            cols="30"
+            rows="10"
+          />
+          <StyledElements>
+            <label htmlFor="priority">priority: </label>
+            <select name="priority" id="priority">
+              <option value="default">default</option>
+              <option value="low">low</option>
+              <option value="medium">medium</option>
+              <option value="high">high</option>
+            </select>
+            <button type="submit">+</button>
+          </StyledElements>
+        </StyledElementsWrapper>
+      </StyledTodoForm>
+    </StyledTodoFormWrapper>
   );
 };
 
