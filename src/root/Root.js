@@ -6,7 +6,6 @@ const Root = () => {
   return (
     <div>
       <GlobalStyle />
-      <h1>Todo App</h1>
       <Router />
     </div>
   );
