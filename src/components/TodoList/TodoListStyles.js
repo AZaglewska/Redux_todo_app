@@ -7,16 +7,14 @@ export const StyledTodoWrapper = styled.div`
 `;
 
 export const StyledTodoLists = styled.ul`
+  display: flex;
+  justify-content: center;
   list-style: none;
   font-size: 18px;
-  text-align: center;
   color: #555;
-  width: 430px;
-  height: 700px;
+  width: 90%;
+  height: 400px;
   padding: 60px 35px 35px 35px;
-  border-radius: 40px;
-  background: #ecf0f3;
-  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
 `;
 
 export const StyledTodoElement = styled.li`
@@ -24,10 +22,45 @@ export const StyledTodoElement = styled.li`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 400px;
   padding: 35px 5px;
   border-radius: 40px;
-  margin: 40px 0;
-  background: #ecf0f3;
-  box-shadow: 8px 8px 15px #cbced1, -10px -10px 13px #ffffff;
+  margin: 40px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+`;
+
+export const StyledInput = styled.input`
+  border: none;
+  outline: none;
+  padding: 30px 10px 15px;
+  background-color: #efefef;
+  width: 90%;
+  border-top: 4px solid teal;
+  border-bottom: 0.5px solid lightgray;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: ${({ theme }) => theme.colors.dark};
+  font-size: ${({ theme }) => theme.fontSizes.l};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+`;
+
+export const StyledTextarea = styled.textarea`
+  border: none;
+  resize: none;
+  outline: none;
+  padding: 8px 10px;
+  height: 100px;
+  background-color: #efefef;
+  width: 90%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-family: inherit;
+  font-size: ${({ theme }) => theme.fontSizes.s};
+  color: ${({ theme }) => theme.colors.lightGrey};
+  font-weight: ${({ theme }) => theme.fontWeight.semiBold};
 `;
