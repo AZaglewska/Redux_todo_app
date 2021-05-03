@@ -16,10 +16,11 @@ export const mainTheme = {
   },
 
   fontWeight: {
-    light: 100,
-    medium: 300,
-    semiBold: 400,
-    bold: 500,
+    superLight: 100,
+    light: 300,
+    medium: 400,
+    semiBold: 500,
+    bold: 700,
   },
 
   fontFamily: {
