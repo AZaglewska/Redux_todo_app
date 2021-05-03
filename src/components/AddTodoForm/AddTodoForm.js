@@ -1,15 +1,19 @@
 import React from "react";
+import Button from "../../atoms/Button";
+import Card from "../../atoms/Card";
+import Input from "../../atoms/Input";
+import Textarea from "../../atoms/Textarea";
+import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import { addTodo } from "../../actions";
 import {
   StyledTodoFormWrapper,
   StyledTodoForm,
-  StyledElementsWrapper,
-  StyledTodoInput,
-  StyledTodoTextarea,
   StyledElements,
 } from "./AddTodoFormStyles";
+import addIcon from "../../assets/icons/add.svg";
 
-const AddTodoForm = () => {
+const AddTodoForm = ({ addTodoProps }) => {
   const handleAddTodoForm = (e) => {
     e.preventDefault();
 
@@ -26,25 +30,17 @@ const AddTodoForm = () => {
       completed: false,
     };
 
+    addTodoProps(todo);
+
     e.target.reset();
   };
 
   return (
     <StyledTodoFormWrapper>
       <StyledTodoForm onSubmit={handleAddTodoForm}>
-        <StyledElementsWrapper>
-          <StyledTodoInput
-            type="text"
-            placeholder="Todo title..."
-            name="title"
-            required
-          />
-          <StyledTodoTextarea
-            name="content"
-            placeholder="Todo content..."
-            cols="30"
-            rows="10"
-          />
+        <Card>
+          <Input />
+          <Textarea />
           <StyledElements>
             <label htmlFor="priority">priority: </label>
             <select name="priority" id="priority">
@@ -53,12 +49,16 @@ const AddTodoForm = () => {
               <option value="medium">medium</option>
               <option value="high">high</option>
             </select>
-            <button type="submit">+</button>
+            <Button type="submit" addIcon={addIcon}></Button>
           </StyledElements>
-        </StyledElementsWrapper>
+        </Card>
       </StyledTodoForm>
     </StyledTodoFormWrapper>
   );
 };
 
-export default AddTodoForm;
+const mapDispatchToProps = (dispatch) => ({
+  addTodoProps: (newTodo) => dispatch(addTodo(newTodo)),
+});
+
+export default connect(null, mapDispatchToProps)(AddTodoForm);
