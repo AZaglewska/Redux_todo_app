@@ -1,21 +1,17 @@
 import React from "react";
-import {
-  StyledTodoWrapper,
-  StyledTodoLists,
-  StyledTodoElement,
-  StyledInput,
-  StyledTextarea,
-} from "./TodoListStyles";
+import TodoListItem from "../TodoListItem/TodoListItem";
+import Card from "../../atoms/Card";
+import { StyledTodoWrapper, StyledTodoLists } from "./TodoListStyles";
 
 const TodoList = ({ todosData }) => {
   return (
     <StyledTodoWrapper>
       <StyledTodoLists>
         {todosData.map((todo) => (
-          <StyledTodoElement key={todo.id}>
-            <StyledInput type="text" value={todo.title} />
-            <StyledTextarea value={todo.content} cols="30" rows="10" />
-          </StyledTodoElement>
+          <Card key={todo.id}>
+            {/* <TodoListItem {...todo} /> */}
+            <TodoListItem todo={todo} />
+          </Card>
         ))}
       </StyledTodoLists>
     </StyledTodoWrapper>
