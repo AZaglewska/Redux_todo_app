@@ -22,13 +22,4 @@ export const StyledTodoForm = styled.form`
 
 export const StyledElements = styled.div`
   margin-top: 20px;
-
-  label {
-    font-size: 15px;
-    color: ${({ theme }) => theme.colors.light};
-  }
-
-  select {
-    margin-right: 10px;
-  }
 `;

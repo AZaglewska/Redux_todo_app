@@ -3,6 +3,7 @@ import Button from "../../atoms/Button";
 import Card from "../../atoms/Card";
 import Input from "../../atoms/Input";
 import Textarea from "../../atoms/Textarea";
+import Select from "../../atoms/Select";
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { addTodo } from "../../actions";
@@ -27,7 +28,7 @@ const AddTodoForm = ({ addTodoProps }) => {
       title,
       content,
       priority,
-      completed: false,
+      isEditing: false,
     };
 
     addTodoProps(todo);
@@ -42,13 +43,7 @@ const AddTodoForm = ({ addTodoProps }) => {
           <Input />
           <Textarea />
           <StyledElements>
-            <label htmlFor="priority">priority: </label>
-            <select name="priority" id="priority">
-              <option value="default">default</option>
-              <option value="low">low</option>
-              <option value="medium">medium</option>
-              <option value="high">high</option>
-            </select>
+            <Select name="priority" id="priority" />
             <Button type="submit" addIcon={addIcon}></Button>
           </StyledElements>
         </Card>
