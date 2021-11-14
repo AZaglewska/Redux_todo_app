@@ -1,8 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { routes } from "../../routes";
-import { NavList, NavListElement, NavLink } from "./NavbarStyles.js";
+import React from 'react';
+import { connect } from 'react-redux';
+import { routes } from '../../routes';
+import { NavList, NavListElement, NavLink } from './NavbarStyles.js';
 
 const Navbar = ({ todos, completedTodos }) => {
   return (
@@ -30,11 +29,5 @@ const mapStateToProps = (state) => ({
   todos: state.todos,
   completedTodos: state.completedTodos,
 });
-
-//skrócona wersja
-// const mapStateToProps = ({ todos, completedTodos }) => ({
-//   todos,
-//   completedTodos,
-// });
 
 export default connect(mapStateToProps)(Navbar);

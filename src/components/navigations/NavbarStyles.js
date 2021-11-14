@@ -5,7 +5,7 @@ export const NavList = styled.ul`
   display: flex;
   list-style: none;
   font-size: ${({ theme }) => theme.fontSizes.l};
-  font-weight: 400;
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   border-bottom: 1px solid ${({ theme }) => theme.colors.light};
   padding: 40px 0;
 `;
@@ -16,4 +16,5 @@ export const NavListElement = styled.li`
 
 export const NavLink = styled(Link)`
   color: ${({ theme }) => theme.colors.light};
+  text-decoration: none;
 `;
